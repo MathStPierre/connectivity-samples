@@ -240,7 +240,7 @@ public class MainActivity extends SampleActivityBase {
                 Log.d(TAG, "Device class AUDIO_VIDEO_HIFI_AUDIO");
                 break;
             case BluetoothClass.Device.AUDIO_VIDEO_LOUDSPEAKER:
-                Log.d(TAG, "Device class AUDIO_VIDEO_LOUDSPEAKER");
+                Log.d(TAG, "Device class AanUDIO_VIDEO_LOUDSPEAKER");
                 break;
             case BluetoothClass.Device.AUDIO_VIDEO_MICROPHONE:
                 Log.d(TAG, "Device class AUDIO_VIDEO_MICROPHONE");
@@ -419,21 +419,8 @@ public class MainActivity extends SampleActivityBase {
 
             // When discovery finds a device
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                // Get the BluetoothDevice object from the Intent
-//                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // If it's already paired, skip it, because it's been listed already
-//                if (device != null && device.getBondState() != BluetoothDevice.BOND_BONDED) {
-//                    mNewDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-//                }
-                // When discovery is finished, change the Activity title
                 Log.d(TAG, "Action Found (" + deviceId + ")");
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-//                setProgressBarIndeterminateVisibility(false);
-//                setTitle(R.string.select_device);
-//                if (mNewDevicesArrayAdapter.getCount() == 0) {
-//                    String noDevices = getResources().getText(R.string.none_found).toString();
-//                    mNewDevicesArrayAdapter.add(noDevices);
-//                }
                 Log.d(TAG, "Discovery Finished (" + deviceId + ")");
             }
             else if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
@@ -455,16 +442,6 @@ public class MainActivity extends SampleActivityBase {
                     && mBluetoothAdapter.getProfileConnectionState(BluetoothA2dp.A2DP) == BluetoothA2dp.STATE_CONNECTED) {
                 Log.d(TAG, "BluetoothAdapter Connection to Bluetooth A2DP");
             }
-
-//        if (mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
-//                && mBluetoothAdapter.getProfileConnectionState(BluetoothGatt.HEADSET) == BluetoothGatt.STATE_CONNECTED) {
-//            Log.d(TAG, "Connection to Bluetooth Headset");
-//        }
-//
-//        if (mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
-//                && mBluetoothAdapter.getProfileConnectionState(BluetoothGattServer.HEADSET) == BluetoothGattServer.STATE_CONNECTED) {
-//            Log.d(TAG, "Connection to Bluetooth Headset");
-//        }
 
             if (mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
                     && mBluetoothAdapter.getProfileConnectionState(BluetoothHealth.HEALTH) == BluetoothHealth.STATE_CONNECTED) {
